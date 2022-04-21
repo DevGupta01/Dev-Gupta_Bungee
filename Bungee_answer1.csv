@@ -1,0 +1,8 @@
+import pandas as pd
+grocery_products = pd.read_csv("main.csv")
+grocery_products.head()
+
+grocery_products.groupby('product_description')['price'].mean()
+grocery_products["price_new"] = grocery_products['price'].fillna(grocery_products.groupby('product_description')['price'].transform("mean"))
+
+grocery_products[grocery["price"].isna()].head()
